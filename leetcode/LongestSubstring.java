@@ -65,8 +65,31 @@ public class LongestSubstring {
         return ans;
     }
 
+    public static int lengthOfLongestSubstring2(String s){
+        List<Character> list = new ArrayList<>();
+        int j = 0;
+        int n = s.length();
+        int rk = 0, ans = 0;
+        while (j < n){
+            while (rk < n && !list.contains(s.charAt(rk))) {
+                list.add(s.charAt(rk));
+                ++rk;
+            }
+            ans = Math.max(ans, rk - j);
+            if (rk < n){
+                int index = list.indexOf(s.charAt(rk));
+                list = list.subList(list.size() == 0 ? 0 : index + 1, list.size());
+                j = j + index + 1;
+            }else {
+                j++;
+            }
+
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
-        System.out.println(lengthOfLongestSubstring1("a"));
+        System.out.println(lengthOfLongestSubstring2("dvdf"));
     }
 
 }
