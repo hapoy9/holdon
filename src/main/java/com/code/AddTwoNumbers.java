@@ -1,4 +1,4 @@
-package addtwonumbers;
+package com.code;
 
 /**
  * @author: guoyongkui
@@ -7,6 +7,20 @@ package addtwonumbers;
  * @description:
  */
 public class AddTwoNumbers {
+
+    public static class ListNode {
+
+        public ListNode(int val) {
+            this.val = val;
+        }
+
+        int val;
+        ListNode next;
+    }
+
+
+
+
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2){
         int i = 0;
